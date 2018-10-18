@@ -373,7 +373,7 @@ class WP_Meta_Query {
 		$sql     = $this->get_sql_for_query( $queries );
 
 		if ( ! empty( $sql['where'] ) ) {
-			$sql['where'] = ' AND ' . $sql['where'];
+			$sql['where'] = ' ' . apply_filters( 'wp_meta_query_clause_relation', 'AND' ) . ' ' . $sql['where'];
 		}
 
 		return $sql;
